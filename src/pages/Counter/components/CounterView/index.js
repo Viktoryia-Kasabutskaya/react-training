@@ -5,7 +5,6 @@ import styles from "./styles.module.scss";
 const CounterView = ({
   isEven,
   counterValue,
-  numericalValue,
   handleIncrement,
   handleReset,
   handleDecrement,
@@ -16,7 +15,9 @@ const CounterView = ({
       style={{ backgroundColor: isEven ? "#a03696" : "#f0a5ed" }}
     >
       <div className={styles.display}>{counterValue}</div>
-      <div className={styles.display}>Kind of number: {numericalValue}</div>
+      <div className={styles.display}>
+        Kind of number: {isEven ? "Even" : "Odd"}
+      </div>
       <div className={styles.controlButtons}>
         <div className={styles.controlButton} onClick={handleDecrement}>
           -
@@ -33,8 +34,8 @@ const CounterView = ({
 };
 
 CounterView.propTypes = {
+  isEven: PropTypes.bool.isRequired,
   counterValue: PropTypes.number.isRequired,
-  numericalValue: PropTypes.number,
   handleIncrement: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
   handleDecrement: PropTypes.func.isRequired,

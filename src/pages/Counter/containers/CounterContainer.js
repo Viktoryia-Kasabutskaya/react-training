@@ -11,18 +11,14 @@ class CounterContainer extends Component {
     };
   }
 
+  componentDidUpdate(_, prevState) {
+    if (prevState.countValue !== this.state.countValue) {
+      this.setState({ isEven: this.state.countValue % 2 === 0 });
+    }
+  }
+
   handleIncrement = () => {
-    this.setState((previousState) => {
-      console.log(previousState);
-      const incrementValue = previousState.countValue + 1;
-      const numericalValue =
-        incrementValue % 2 === 0 ? "Number is even" : "Number is odd";
-      return {
-        countValue: incrementValue,
-        numericalValue,
-        isEven: !this.state.isEven,
-      };
-    });
+    this.setState({ countValue: this.state.countValue + 1 });
   };
 
   handleReset = () => {
@@ -31,16 +27,7 @@ class CounterContainer extends Component {
 
   handleDecrement = () => {
     if (this.state.countValue > 0) {
-      this.setState((previousState) => {
-        const incrementValue = previousState.countValue - 1;
-        const numericalValue =
-          incrementValue % 2 === 0 ? "Number is even" : "Number is odd";
-        return {
-          countValue: incrementValue,
-          numericalValue,
-          isEven: !this.state.isEven,
-        };
-      });
+      this.setState({ countValue: this.state.countValue - 1 });
     }
   };
 
