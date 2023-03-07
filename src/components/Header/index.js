@@ -1,18 +1,26 @@
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import startCase from "lodash/startCase";
 
 import { ROUTE_NAMES } from "../../routes/routeNames";
 
 import styles from "./styles.module.scss";
 
 const Header = () => {
+  const { pathname } = useLocation();
+
   return (
     <div className={styles.wrapper}>
-      <Link to={ROUTE_NAMES.HOME} className={styles.navigateLink}>
-        Home Page
-      </Link>
-      <Link to={ROUTE_NAMES.COUNTER} className={styles.navigateLink}>
-        Counter Page
-      </Link>
+      {Object.entries(ROUTE_NAMES).map(([routeName, path]) => (
+        <Link
+          key={path}
+          to={path}
+          className={styles.navigateLink}
+          style={{ color: path === pathname ? "yellow" : "#f0ffff" }}
+        >
+          {startCase(routeName)}
+        </Link>
+      ))}
     </div>
   );
 };
