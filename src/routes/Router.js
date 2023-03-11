@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 
 import { ROUTE_NAMES } from "./routeNames";
-import CounterContainer from "../pages/Counter/containers/CounterContainer";
-import CountersContainer from "../pages/Counters/containers/CountersContainer";
+import CounterContainer from "pages/Counter/containers/CounterContainer";
+import CountersContainer from "pages/Counters/containers/CountersContainer";
 
 const Router = () => {
   return (

@@ -1,5 +1,5 @@
 .items {
-    width: 300px;
+    width: 450px;
     border: 2px solid black;
     border-radius: 10px;
     margin: 10px auto;
@@ -7,8 +7,13 @@
     background: #b33ca7;
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
 .button {
-    margin: 0 20px 0 0;
     padding: 10px 0;
     width: 120px;
     font-size: 18px;
@@ -18,4 +23,9 @@
 
 .text {
     font-size: 18px;
+}
+
+.counters {
+    display: flex;
+    flex-wrap: wrap;
 }

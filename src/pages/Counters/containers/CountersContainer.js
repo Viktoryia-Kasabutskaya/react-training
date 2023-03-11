@@ -1,28 +1,33 @@
 import { useCallback, useState } from "react";
 import { v4 as uuid } from "uuid";
 
-// import { useCounter } from "hooks";
 import Layout from "../components/Layout";
-import { useCounter } from "../../../hooks";
 
 const CountersContainer = () => {
-  const { countValue, handleIncrement, handleDecrement, handleReset } =
-    useCounter(0);
-
-  const isDisabled = countValue === 0;
-
   const [counters, setCounters] = useState([]);
 
-  const handleAddCounter = useCallback(() => {
+  const handleAddCounter = () => {
     const newCounter = {
       countValue: 0,
       id: uuid(),
     };
-    setCounters((state) => [...state, newCounter]);
-  }, []);
+    setCounters((state) => {
+      const updatedCounters = state.map((counter) => {
+        return {
+          ...counter,
+          countValue:
+            counter.countValue % 2 === 0
+              ? (counter.countValue += 1)
+              : counter.countValue,
+        };
+      });
+      updatedCounters.push(newCounter);
+      return updatedCounters;
+    });
+  };
 
   const handleRemoveAllCounter = useCallback(() => {
-    setCounters((state) => []);
+    setCounters([]);
   }, []);
 
   const handleRemoveCounter = useCallback((id) => {
@@ -32,20 +37,62 @@ const CountersContainer = () => {
         (counter) => counter.id === id
       );
       countersCopy.splice(counterIndexToRemove, 1);
+      return countersCopy.map((counter) => {
+        return {
+          ...counter,
+          countValue:
+            counter.countValue % 2 !== 0
+              ? (counter.countValue -= 1)
+              : counter.countValue,
+        };
+      });
+    });
+  }, []);
+
+  const handleCounterIncrement = useCallback((id) => {
+    setCounters((state) => {
+      const countersCopy = structuredClone(state);
+      const foundCounter = countersCopy.find((counter) => counter.id === id);
+      foundCounter.countValue += 1;
       return countersCopy;
     });
   }, []);
 
+  const handleCounterDecrement = useCallback((id) => {
+    setCounters((state) => {
+      const countersCopy = structuredClone(state);
+      const foundCounter = countersCopy.find((counter) => counter.id === id);
+      if (foundCounter.countValue > 0) {
+        foundCounter.countValue -= 1;
+      }
+      return countersCopy;
+    });
+  }, []);
+
+  const handleCounterReset = useCallback((id) => {
+    setCounters((state) => {
+      const countersCopy = structuredClone(state);
+      const foundCounter = countersCopy.find((counter) => counter.id === id);
+      foundCounter.countValue = 0;
+      return countersCopy;
+    });
+  }, []);
+
+  const sumOfValues = counters.reduce(
+    (result, { countValue }) => result + countValue,
+    0
+  );
+
   return (
     <Layout
       counters={counters}
-      counterValue={countValue}
       handleAddCounter={handleAddCounter}
       handleRemoveAllCounter={handleRemoveAllCounter}
-      handleIncrement={handleIncrement}
-      handleDecrement={isDisabled ? () => {} : handleDecrement}
-      handleReset={handleReset}
       handleRemoveCounter={handleRemoveCounter}
+      handleCounterIncrement={handleCounterIncrement}
+      handleCounterDecrement={handleCounterDecrement}
+      handleCounterReset={handleCounterReset}
+      sumOfValues={sumOfValues}
     />
   );
 };
