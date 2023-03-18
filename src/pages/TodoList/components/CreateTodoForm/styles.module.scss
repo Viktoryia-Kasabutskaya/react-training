@@ -1,0 +1,13 @@
+.wrapper {
+    width: 30%;
+    border: 1px solid #6e2a67;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    padding: 10px;
+    
+    &:hover {
+        box-shadow: 0 0 5px 2px rgb(182, 42, 201);
+    }
+}

@@ -48,12 +48,12 @@ const CounterView = ({
 };
 
 CounterView.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   counterValue: PropTypes.number.isRequired,
   handleIncrement: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
   handleDecrement: PropTypes.func.isRequired,
-  handleRemove: PropTypes.func.isRequired,
+  handleRemove: PropTypes.func,
 };
 
 export default memo(CounterView);
