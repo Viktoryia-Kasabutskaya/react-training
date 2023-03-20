@@ -7,18 +7,11 @@ import CustomInput from "components/CustomInput";
 
 import styles from "./styles.module.scss";
 
-const EditTodoItem = ({
-  id,
-  taskNumber,
-  taskText,
-  handleSave,
-  handleCancel,
-}) => {
+const EditTodoItem = ({ id, taskText, handleSave, handleCancel }) => {
   const { form, handleChange } = useForm({ inputValue: taskText });
 
   return (
     <div className={styles.wrapper}>
-      <div>{taskNumber}</div>
       <CustomInput
         type="text"
         name="inputValue"
@@ -38,7 +31,6 @@ const EditTodoItem = ({
 
 EditTodoItem.propTypes = {
   id: PropTypes.string.isRequired,
-  taskNumber: PropTypes.number.isRequired,
   taskText: PropTypes.string,
   handleSave: PropTypes.func.isRequired,
   handleCancel: PropTypes.func.isRequired,

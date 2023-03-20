@@ -12,6 +12,7 @@ const todosSlice = createSlice({
     createTask: (state, { payload: taskData }) => {
       const newTask = {
         id: uuid(),
+        title: taskData.taskTitle,
         text: taskData.taskText,
         isCompleted: false,
         isEditMode: false,

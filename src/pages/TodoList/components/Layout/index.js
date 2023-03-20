@@ -9,6 +9,7 @@ import styles from "./styles.module.scss";
 const Layout = ({
   todos,
   taskText,
+  taskTitle,
   handleSubmit,
   handleChange,
   handleTaskDelete,
@@ -20,18 +21,18 @@ const Layout = ({
   return (
     <div>
       <CreateTodoForm
+        taskTitle={taskTitle}
         taskText={taskText}
         handleSubmit={handleSubmit}
         handleChange={handleChange}
       />
 
       <div className={styles.todosArea}>
-        {todos.map(({ id, text, isCompleted, isEditMode }, index) => {
+        {todos.map(({ id, title, text, isCompleted, isEditMode }) => {
           return isEditMode ? (
             <EditTodoItem
               key={id}
               taskText={text}
-              taskNumber={index + 1}
               id={id}
               handleCancel={handleTaskCancel}
               handleSave={handleTaskSave}
@@ -40,9 +41,9 @@ const Layout = ({
             <TodoItem
               key={id}
               id={id}
+              taskTitle={title}
               taskText={text}
               isCompleted={isCompleted}
-              taskNumber={index + 1}
               handleDelete={() => handleTaskDelete(id)}
               handleComplete={handleTaskComplete}
               handleEdit={handleTaskEdit}

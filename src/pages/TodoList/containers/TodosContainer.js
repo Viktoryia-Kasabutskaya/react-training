@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useForm } from "hooks";
@@ -18,7 +19,16 @@ const TodosContainer = () => {
 
   const todos = useSelector(sortedTasksSelector);
 
-  const { form, handleChange, handleReset } = useForm({ taskText: "" });
+  const { form, handleChange, handleReset } = useForm({
+    taskTitle: "",
+    taskText: "",
+  });
+
+  const [isExpanded, setExpanded] = useState(false);
+
+  const handleAccordionToggle = (_, expanded) => {
+    setExpanded(!expanded);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -53,6 +63,7 @@ const TodosContainer = () => {
       <Layout
         todos={todos}
         taskText={form.taskText}
+        taskTitle={form.taskTitle}
         handleSubmit={handleSubmit}
         handleChange={handleChange}
         handleTaskDelete={handleTaskRemove}
@@ -60,6 +71,8 @@ const TodosContainer = () => {
         handleTaskEdit={handleTaskEdit}
         handleTaskCancel={handleTaskEditCancel}
         handleTaskSave={handleTaskSave}
+        handleAccordionToggle={handleAccordionToggle}
+        expanded={isExpanded}
       />
     </div>
   );
