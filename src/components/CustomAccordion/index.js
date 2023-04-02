@@ -4,32 +4,23 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PropTypes from "prop-types";
 
-const CustomAccordion = ({
-  children,
-  expanded,
-  onChange,
-  taskText,
-  taskTitle,
-}) => {
+const CustomAccordion = ({ children, expanded, renderTitle, title }) => {
   return (
     <div>
-      <Accordion expanded={expanded} onChange={onChange}>
+      <Accordion expanded={expanded}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <div>{taskTitle}</div>
+          {renderTitle(title)}
         </AccordionSummary>
-        <AccordionDetails>
-          <div>{taskText}</div>
-          {children}
-        </AccordionDetails>
+        <AccordionDetails>{children}</AccordionDetails>
       </Accordion>
     </div>
   );
 };
 
 CustomAccordion.propTypes = {
-  taskTitle: PropTypes.string.isRequired,
-  taskText: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  title: PropTypes.string,
+  expanded: PropTypes.bool,
+  renderTitle: PropTypes.func,
 };
 
 export default CustomAccordion;

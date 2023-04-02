@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useForm } from "hooks";
@@ -12,6 +11,7 @@ import {
   saveTask,
 } from "../reducers";
 import { sortedTasksSelector } from "../selectors";
+
 import Layout from "../components/Layout";
 
 const TodosContainer = () => {
@@ -23,12 +23,6 @@ const TodosContainer = () => {
     taskTitle: "",
     taskText: "",
   });
-
-  const [isExpanded, setExpanded] = useState(false);
-
-  const handleAccordionToggle = (_, expanded) => {
-    setExpanded(!expanded);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -71,8 +65,6 @@ const TodosContainer = () => {
         handleTaskEdit={handleTaskEdit}
         handleTaskCancel={handleTaskEditCancel}
         handleTaskSave={handleTaskSave}
-        handleAccordionToggle={handleAccordionToggle}
-        expanded={isExpanded}
       />
     </div>
   );

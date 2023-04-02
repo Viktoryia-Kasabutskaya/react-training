@@ -18,18 +18,18 @@ const CreateTodoForm = ({
         name="taskTitle"
         value={taskTitle}
         onChange={handleChange}
-        placeholder="Write title of task"
+        label="Task title"
       />
       <CustomInput
         type="text"
         name="taskText"
         value={taskText}
         onChange={handleChange}
-        placeholder="Write description of task"
+        label="Task description"
       />
       <CustomButton
         text="Create Task"
-        disabled={!taskText}
+        disabled={!taskText && !taskTitle}
         onClick={handleSubmit}
       />
     </form>

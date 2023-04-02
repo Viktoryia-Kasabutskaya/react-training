@@ -8,22 +8,21 @@ import styles from "./styles.module.scss";
 const TodoItem = ({
   id,
   taskText,
-  isExpanded,
   isCompleted,
   handleComplete,
   handleEdit,
   handleDelete,
   taskTitle,
-  handleAccordionToggle,
 }) => {
   return (
     <div className={styles.wrapper}>
       <CustomAccordion
-        expanded={isExpanded}
-        onChange={handleAccordionToggle}
-        taskTitle={taskTitle}
-        taskText={taskText}
+        title={taskTitle}
+        renderTitle={(title) => (
+          <p className={isCompleted ? styles.completed : ""}>{title}</p>
+        )}
       >
+        <div className={isCompleted ? styles.completed : ""}>{taskText}</div>
         <div className={styles.controlsArea}>
           <CustomButton
             text="Edit"
@@ -49,6 +48,7 @@ TodoItem.propTypes = {
   handleComplete: PropTypes.func.isRequired,
   handleDelete: PropTypes.func.isRequired,
   handleEdit: PropTypes.func.isRequired,
+  isCompleted: PropTypes.bool.isRequired,
 };
 
 export default TodoItem;

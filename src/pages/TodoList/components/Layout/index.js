@@ -32,6 +32,7 @@ const Layout = ({
           return isEditMode ? (
             <EditTodoItem
               key={id}
+              taskTitle={title}
               taskText={text}
               id={id}
               handleCancel={handleTaskCancel}
@@ -56,6 +57,7 @@ const Layout = ({
 };
 
 Layout.propTypes = {
+  taskTitle: PropTypes.string,
   taskText: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
