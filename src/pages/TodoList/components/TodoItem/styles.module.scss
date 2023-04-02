@@ -1,0 +1,17 @@
+.wrapper {
+    margin: 0 15px;
+
+    &:hover {
+        box-shadow: 0 0 5px 2px rgb(182, 42, 201);
+    }
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.controlsArea {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0 0;
+}
