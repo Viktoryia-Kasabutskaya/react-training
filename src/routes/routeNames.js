@@ -3,4 +3,6 @@ export const ROUTE_NAMES = {
   COUNTER: "/counter",
   COUNTERS: "/counters",
   TODO_LIST: "/todo-list",
+  POKEMONS: "/pokemons",
+  POKEMON_DETAILS: "/pokemons/:pokemonName",
 };
