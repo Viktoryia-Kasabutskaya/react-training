@@ -4,34 +4,34 @@ import Spinner from "components/Spinner";
 
 import styles from "./styles.module.scss";
 
-import hp from "static/image/life-bar.png";
-import attack from "static/image/sword.png";
-import defense from "static/image/shield.png";
-import specialAttack from "static/image/hammer.png";
-import specialDefense from "static/image/defense.png";
-import speed from "static/image/wind.png";
+// import hp from "static/image/life-bar.png";
+// import attack from "static/image/sword.png";
+// import defense from "static/image/shield.png";
+// import specialAttack from "static/image/hammer.png";
+// import specialDefense from "static/image/defense.png";
+// import speed from "static/image/wind.png";
 
-const STAT_IMAGES = {
-  hp,
-  attack,
-  defense,
-  "special-attack": specialAttack,
-  "special-defense": specialDefense,
-  speed,
-};
+// const STAT_IMAGES = {
+//   hp,
+//   attack,
+//   defense,
+//   "special-attack": specialAttack,
+//   "special-defense": specialDefense,
+//   speed,
+// };
 
-const getStats = (stats) => {
-  return stats.reduce((result, { base_stat, stat }) => {
-    result[stat.name] = {
-      base_stat: base_stat,
-      imageUrl: STAT_IMAGES[stat.name],
-    };
-    return result;
-  }, {});
-};
+// const getStats = (stats) => {
+//   return stats.reduce((result, { base_stat, stat }) => {
+//     result[stat.name] = {
+//       base_stat: base_stat,
+//       imageUrl: STAT_IMAGES[stat.name],
+//     };
+//     return result;
+//   }, {});
+// };
 
 const Layout = ({ name, sprites, stats, isLoading }) => {
-  const statsPokemon = getStats(stats);
+  // const statsPokemon = getStats(stats);
 
   return (
     <div className={styles.wrapper}>
@@ -43,7 +43,7 @@ const Layout = ({ name, sprites, stats, isLoading }) => {
           <h3>{name}</h3>
           <img src={sprites?.front_default} alt="" />
           <div>
-            {Object.keys(statsPokemon)?.map((name) => (
+            {/* {Object.keys(statsPokemon)?.map((name) => (
               <div key={name} className={styles.item}>
                 <img
                   src={statsPokemon[name].imageUrl}
@@ -54,7 +54,7 @@ const Layout = ({ name, sprites, stats, isLoading }) => {
                 />
                 {name}: {statsPokemon[name].base_stat}
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
       )}
