@@ -1,13 +1,18 @@
 {
   "files": {
-    "main.css": "/react-training/static/css/main.bf55fd9b.css",
-    "main.js": "/react-training/static/js/main.31e3291b.js",
+    "main.css": "/react-training/static/css/main.92a47fd4.css",
+    "main.js": "/react-training/static/js/main.0e9dbebc.js",
+    "static/media/hammer.png": "/react-training/static/media/hammer.4ba8d3fefdf8c7de5714.png",
+    "static/media/shield.png": "/react-training/static/media/shield.864582a69549b74d2a6f.png",
+    "static/media/sword.png": "/react-training/static/media/sword.639ebd446dacd37a8509.png",
+    "static/media/wind.png": "/react-training/static/media/wind.6df3aae72e2b5acc1bac.png",
+    "static/media/defense.png": "/react-training/static/media/defense.2c86a0bd58941c7119f9.png",
     "index.html": "/react-training/index.html",
-    "main.bf55fd9b.css.map": "/react-training/static/css/main.bf55fd9b.css.map",
-    "main.31e3291b.js.map": "/react-training/static/js/main.31e3291b.js.map"
+    "main.92a47fd4.css.map": "/react-training/static/css/main.92a47fd4.css.map",
+    "main.0e9dbebc.js.map": "/react-training/static/js/main.0e9dbebc.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf55fd9b.css",
-    "static/js/main.31e3291b.js"
+    "static/css/main.92a47fd4.css",
+    "static/js/main.0e9dbebc.js"
   ]
 }
