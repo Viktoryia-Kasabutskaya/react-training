@@ -5,7 +5,9 @@ import { useParams } from "react-router-dom";
 import { getPokemonDetailsThunk } from "../api";
 import {
   isPokemonDetailsLoadingSelector,
-  pokemonDetailsSelector,
+  pokemonNameSelector,
+  pokemonSpritesSelector,
+  pokemonStatsSelector,
 } from "../selectors";
 
 import Layout from "../components/Layout";
@@ -13,7 +15,9 @@ import Layout from "../components/Layout";
 const PokemonDetailsContainer = () => {
   const dispatch = useDispatch();
 
-  const { name, sprites, stats } = useSelector(pokemonDetailsSelector);
+  const name = useSelector(pokemonNameSelector);
+  const sprites = useSelector(pokemonSpritesSelector);
+  const stats = useSelector(pokemonStatsSelector);
   const isLoading = useSelector(isPokemonDetailsLoadingSelector);
 
   const { pokemonName } = useParams();

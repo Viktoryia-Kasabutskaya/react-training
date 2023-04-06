@@ -10,6 +10,6 @@ export const getPokemonDetailsThunk = createAsyncThunk(
   async (name) => {
     const response = await getPokemonByName(name);
 
-    return pick(response.data, ["name", "stats", "abilities", "sprites"]);
+    return pick(response.data, ["name", "stats", "sprites"]);
   }
 );
