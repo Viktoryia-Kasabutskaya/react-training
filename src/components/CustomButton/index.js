@@ -16,7 +16,7 @@ const CustomButton = ({ text, onClick, disabled = false }) => {
 
 CustomButton.propTypes = {
   text: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   disabled: PropTypes.bool,
 };
 
